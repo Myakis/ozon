@@ -8,6 +8,8 @@ export function categoryFilter(goods, value) {
     return goodsItem.category === value;
   });
 }
+
+//Поиск по цене через фильтр
 export function priceFilterFormTo(goods, value1 = 0, value2 = 99999999999) {
   if (value1.length === 0) {
     value1 = 0;
