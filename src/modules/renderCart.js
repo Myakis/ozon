@@ -33,7 +33,7 @@ function renderCart(goods) {
             <h5 class="card-title">
               ${goodItem.title} 
             </h5>
-            <button class="btn btn-primary">В корзину</button>
+            <button class="btn btn-primary">Удалить</button>
           </div>
   </div>
 `
