@@ -2,12 +2,22 @@ function renderCart(goods) {
   const cardWrapper = document.querySelector(".cart-wrapper");
   cardWrapper.innerHTML = "";
 
-  localStorage.setItem("goods", JSON.stringify(goods));
+  // localStorage.setItem("goods", JSON.stringify(goods));
 
-  goods.forEach((goodItem) => {
+  if (goods.length === 0) {
     cardWrapper.insertAdjacentHTML(
       "beforeend",
       `
+    <div id="cart-empty">
+      Ваша корзина пока пуста
+    </div>
+    `
+    );
+  } else {
+    goods.forEach((goodItem) => {
+      cardWrapper.insertAdjacentHTML(
+        "beforeend",
+        `
         <div class="card" data-key="${goodItem.id}">
           ${goodItem.sale ? `<div class="card-sale">🔥Hot Sale🔥</div>` : ""}
           <div class="card-img-wrapper">
@@ -27,7 +37,8 @@ function renderCart(goods) {
           </div>
   </div>
 `
-    );
-  });
+      );
+    });
+  }
 }
 export default renderCart;
