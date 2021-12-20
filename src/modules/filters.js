@@ -15,9 +15,18 @@ export function priceFilterFormTo(goods, value1 = 0, value2 = 99999999999) {
     value1 = 0;
   }
   if (value2.length === 0) {
-    value2 = 25000000;
+    value2 = Infinity;
   }
   return goods.filter((goodsItem) => {
     return goodsItem.price > value1 && goodsItem.price < value2;
+  });
+}
+export function hotSaleFilter(goods, value) {
+  return goods.filter((goodsItem) => {
+    if (value) {
+      return goodsItem.sale === true;
+    } else {
+      return goodsItem;
+    }
   });
 }
